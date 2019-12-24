@@ -90,7 +90,7 @@ github "MahmoudMMB/LocationPicker_SupportRTL_Language"
 
 Swift Package Manager is currently only available with the Swift 3 development [snapshots](#https://swift.org/download/).
 
-To integrate `LocationPicker` into your Xcode project using Swift Package Manager, specify it in your `Packages.swift`:
+To integrate `LocationPickerRTL` into your Xcode project using Swift Package Manager, specify it in your `Packages.swift`:
 
 ```swift
 import PackageDescription

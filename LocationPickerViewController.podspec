@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "LocationPickerViewControllerRTL"
-  s.version          = "3.4"
+  s.version          = "3.4.1"
   s.summary          = "A ready for use and fully customizable location picker for your app."
 
   s.homepage         = "https://github.com/MahmoudMMB/LocationPicker_SupportRTL_Language"
