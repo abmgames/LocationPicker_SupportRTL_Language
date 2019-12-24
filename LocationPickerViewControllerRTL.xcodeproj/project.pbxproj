@@ -14,10 +14,11 @@
 		0228892C1CACE58A00D7E11A /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228892B1CACE58A00D7E11A /* Helpers.swift */; };
 		0268267D1CAF94A900B18185 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0268267C1CAF94A900B18185 /* LocationCell.swift */; };
 		0268268A1CAFB74A00B18185 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026826891CAFB74A00B18185 /* StyleKit.swift */; };
+		89B0273A23B2A36200DDB870 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89B0273C23B2A36200DDB870 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		022888771CA9398D00D7E11A /* LocationPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LocationPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		022888771CA9398D00D7E11A /* LocationPickerViewControllerRTL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LocationPickerViewControllerRTL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0228887A1CA9398D00D7E11A /* LocationPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationPicker.h; sourceTree = "<group>"; };
 		0228887C1CA9398D00D7E11A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		022889111CA939FB00D7E11A /* LocationPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationPicker.swift; sourceTree = "<group>"; };
@@ -26,6 +27,8 @@
 		0228892B1CACE58A00D7E11A /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		0268267C1CAF94A900B18185 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		026826891CAFB74A00B18185 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
+		89B0273B23B2A36200DDB870 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		89B0273D23B2A37200DDB870 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +53,7 @@
 		022888781CA9398D00D7E11A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				022888771CA9398D00D7E11A /* LocationPicker.framework */,
+				022888771CA9398D00D7E11A /* LocationPickerViewControllerRTL.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,6 +67,7 @@
 				022889271CABDAF500D7E11A /* LocationItem.swift */,
 				022889291CAC297E00D7E11A /* Protocol.swift */,
 				0228892B1CACE58A00D7E11A /* Helpers.swift */,
+				89B0273C23B2A36200DDB870 /* Localizable.strings */,
 				026826891CAFB74A00B18185 /* StyleKit.swift */,
 				0228887C1CA9398D00D7E11A /* Info.plist */,
 			);
@@ -84,9 +88,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		022888761CA9398D00D7E11A /* LocationPicker */ = {
+		022888761CA9398D00D7E11A /* LocationPickerViewControllerRTL */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0228888B1CA9398D00D7E11A /* Build configuration list for PBXNativeTarget "LocationPicker" */;
+			buildConfigurationList = 0228888B1CA9398D00D7E11A /* Build configuration list for PBXNativeTarget "LocationPickerViewControllerRTL" */;
 			buildPhases = (
 				022888721CA9398D00D7E11A /* Sources */,
 				022888731CA9398D00D7E11A /* Frameworks */,
@@ -97,9 +101,9 @@
 			);
 			dependencies = (
 			);
-			name = LocationPicker;
+			name = LocationPickerViewControllerRTL;
 			productName = LocationPicker;
-			productReference = 022888771CA9398D00D7E11A /* LocationPicker.framework */;
+			productReference = 022888771CA9398D00D7E11A /* LocationPickerViewControllerRTL.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -110,7 +114,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0940;
-				ORGANIZATIONNAME = "Jerome Tan";
+				ORGANIZATIONNAME = MahmoudMMB;
 				TargetAttributes = {
 					022888761CA9398D00D7E11A = {
 						CreatedOnToolsVersion = 7.3;
@@ -119,19 +123,21 @@
 					};
 				};
 			};
-			buildConfigurationList = 022888711CA9398D00D7E11A /* Build configuration list for PBXProject "LocationPicker" */;
+			buildConfigurationList = 022888711CA9398D00D7E11A /* Build configuration list for PBXProject "LocationPickerViewControllerRTL" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
+				ar,
 			);
 			mainGroup = 0228886D1CA9398D00D7E11A;
 			productRefGroup = 022888781CA9398D00D7E11A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				022888761CA9398D00D7E11A /* LocationPicker */,
+				022888761CA9398D00D7E11A /* LocationPickerViewControllerRTL */,
 			);
 		};
 /* End PBXProject section */
@@ -141,6 +147,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89B0273A23B2A36200DDB870 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +168,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		89B0273C23B2A36200DDB870 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89B0273B23B2A36200DDB870 /* en */,
+				89B0273D23B2A37200DDB870 /* ar */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		022888891CA9398D00D7E11A /* Debug */ = {
@@ -290,9 +309,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 3.4.2;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.JeromeTan.LocationPicker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MahmoudMMB.LocationPickerViewControllerRTL;
+				PRODUCT_NAME = LocationPickerViewControllerRTL;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -313,9 +333,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 3.4.2;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.JeromeTan.LocationPicker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MahmoudMMB.LocationPickerViewControllerRTL;
+				PRODUCT_NAME = LocationPickerViewControllerRTL;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
@@ -325,7 +346,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		022888711CA9398D00D7E11A /* Build configuration list for PBXProject "LocationPicker" */ = {
+		022888711CA9398D00D7E11A /* Build configuration list for PBXProject "LocationPickerViewControllerRTL" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				022888891CA9398D00D7E11A /* Debug */,
@@ -334,7 +355,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0228888B1CA9398D00D7E11A /* Build configuration list for PBXNativeTarget "LocationPicker" */ = {
+		0228888B1CA9398D00D7E11A /* Build configuration list for PBXNativeTarget "LocationPickerViewControllerRTL" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0228888C1CA9398D00D7E11A /* Debug */,

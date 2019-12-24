@@ -234,22 +234,22 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
     // MARK: UI Customizations
     
     /// Text that indicates user's current location. __Default__ is __`"Current Location"`__.
-    open var currentLocationText = "Current Location".localize_
+    open var currentLocationText = NSLocalizedString("Current Location", comment: "")
     
     /// Text of search bar's placeholder. __Default__ is __`"Search for location"`__.
-    open var searchBarPlaceholder = "Search for location".localize_
+    open var searchBarPlaceholder = NSLocalizedString("Search for location", comment: "")
     
     /// Text of location denied alert title. __Default__ is __`"Location access denied"`__
-    open var locationDeniedAlertTitle = "Location access denied".localize_
+    open var locationDeniedAlertTitle = NSLocalizedString("Location access denied", comment: "")
     
     /// Text of location denied alert message. __Default__ is __`"Grant location access to use current location"`__
-    open var locationDeniedAlertMessage = "Grant location access to use current location".localize_
+    open var locationDeniedAlertMessage = NSLocalizedString("Grant location access to use current location", comment: "")
     
     /// Text of location denied alert _Grant_ button. __Default__ is __`"Grant"`__
-    open var locationDeniedGrantText = "Grant".localize_
+    open var locationDeniedGrantText = NSLocalizedString("Grant", comment: "")
     
     /// Text of location denied alert _Cancel_ button. __Default__ is __`"Cancel"`__
-    open var locationDeniedCancelText = "Cancel".localize_
+    open var locationDeniedCancelText = NSLocalizedString("Cancel", comment: "")
     
     
     /// Longitudinal distance in meters that the map view shows when user select a location and before zoom in or zoom out. __Default__ is __`1000`__.

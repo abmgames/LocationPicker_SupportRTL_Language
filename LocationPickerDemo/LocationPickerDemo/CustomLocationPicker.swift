@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LocationPicker
+import LocationPickerViewControllerRTL
 
 class CustomLocationPicker: LocationPicker {
     
