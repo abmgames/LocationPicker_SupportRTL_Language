@@ -1,4 +1,4 @@
-# LocationPicker
+# LocationPicker Support RTL Language 
 
 A ready for use and fully customizable location picker for your app.
 
