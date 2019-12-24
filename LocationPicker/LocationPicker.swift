@@ -234,22 +234,22 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
     // MARK: UI Customizations
     
     /// Text that indicates user's current location. __Default__ is __`"Current Location"`__.
-    open var currentLocationText = "Current Location"
+    open var currentLocationText = "Current Location".localize_
     
     /// Text of search bar's placeholder. __Default__ is __`"Search for location"`__.
-    open var searchBarPlaceholder = "Search for location"
+    open var searchBarPlaceholder = "Search for location".localize_
     
     /// Text of location denied alert title. __Default__ is __`"Location access denied"`__
-    open var locationDeniedAlertTitle = "Location access denied"
+    open var locationDeniedAlertTitle = "Location access denied".localize_
     
     /// Text of location denied alert message. __Default__ is __`"Grant location access to use current location"`__
-    open var locationDeniedAlertMessage = "Grant location access to use current location"
+    open var locationDeniedAlertMessage = "Grant location access to use current location".localize_
     
     /// Text of location denied alert _Grant_ button. __Default__ is __`"Grant"`__
-    open var locationDeniedGrantText = "Grant"
+    open var locationDeniedGrantText = "Grant".localize_
     
     /// Text of location denied alert _Cancel_ button. __Default__ is __`"Cancel"`__
-    open var locationDeniedCancelText = "Cancel"
+    open var locationDeniedCancelText = "Cancel".localize_
     
     
     /// Longitudinal distance in meters that the map view shows when user select a location and before zoom in or zoom out. __Default__ is __`1000`__.
@@ -358,7 +358,7 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
     
     private var mapViewHeightConstraint: NSLayoutConstraint!
     private var mapViewHeight: CGFloat {
-        return view.frame.width / 3 * 2
+        return view.frame.height * 0.65
     }
     
     private var pinViewCenterYConstraint: NSLayoutConstraint!
@@ -517,7 +517,7 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func setupViews() {
-        view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)    // the background color of view needs to be set because this color would affect the color of navigation bar if it is translucent.
+        view.backgroundColor = #colorLiteral(red: 0.07058823529, green: 0.4941176471, blue: 0.7960784314, alpha: 1)    // the background color of view needs to be set because this color would affect the color of navigation bar if it is translucent.
         
         searchBar.delegate = self
         searchBar.placeholder = searchBarPlaceholder
