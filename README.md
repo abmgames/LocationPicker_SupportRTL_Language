@@ -1,8 +1,8 @@
-# LocationPicker Support RTL Language 
+# LocationPicker Support RTL Language
 
 A ready for use and fully customizable location picker for your app.
 
-![](https://raw.githubusercontent.com/JeromeTan1997/LocationPicker/master/Screenshots/locationpicker.gif)
+![](https://raw.githubusercontent.com/MahmoudMMB/LocationPicker_SupportRTL_Language/master/Screenshots/locationpicker.gif)
 
 ![Language](https://img.shields.io/badge/language-Swift%204.1-orange.svg)
 [![CocoaPods](https://img.shields.io/cocoapods/v/LocationPickerViewController.svg?style=flat)](http://cocoadocs.org/docsets/LocationPickerViewController/)
@@ -63,7 +63,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'YourApp' do
-    pod 'LocationPickerViewController'
+    pod 'LocationPickerViewControllerRTL'
 end
 ```
 
@@ -81,7 +81,7 @@ $ brew install carthage
 To integrate `LocationPicker` into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "JeromeTan1997/LocationPicker"
+github "MahmoudMMB/LocationPicker_SupportRTL_Language"
 ```
 
 ### Swift Package Manager
@@ -99,7 +99,7 @@ let package = Package(
     name: "Your Project Name",
     targets: [],
     dependencies: [
-        .Package(url: "https://github.com/JeromeTan1997/LocationPicker.git", versions: "2.0.0" ..< Version.max)
+        .Package(url: "https://github.com/MahmoudMMB/LocationPicker_SupportRTL_Language.git", versions: "2.0.0" ..< Version.max)
     ]
 )
 ```
@@ -146,7 +146,7 @@ presentViewController(navigationController, animated: true, completion: nil)
 
 1. Drag a __View Controller__ to your Storyboard.
 2. In the __Identity inspector__, Entry `LocationPicker` both in __Class__ and __Module__ field.
-![](https://raw.githubusercontent.com/JeromeTan1997/LocationPicker/master/Screenshots/storyboard.png)
+![](https://raw.githubusercontent.com/MahmoudMMB/LocationPicker_SupportRTL_Language/master/Screenshots/storyboard.png)
 __NOTE__: If you installed via Cocopods, the __Module__ field should be `LocationPickerViewController`
 3. Create a __segue__ and add a __Identifier__ to it.
 4. Add the following codes in the source view controller.
@@ -185,7 +185,7 @@ This method provides the text of `locationDeniedAlertController` simultaneously.
 
 If this method is not called, the alert controller will be presented like this
 
-![](https://raw.githubusercontent.com/JeromeTan1997/LocationPicker/master/Screenshots/location-access.png)
+![](https://raw.githubusercontent.com/MahmoudMMB/LocationPicker_SupportRTL_Language/master/Screenshots/location-access.png)
 
 __Grant__ button will direct user to the Settings where location access can be changed.
 
@@ -455,7 +455,7 @@ A location can be created with only a name. In this case, the value of property 
 
 ## Change Log
 
-[CHANGELOG.md](https://github.com/JeromeTan1997/LocationPicker/blob/master/CHANGELOG.md)
+[CHANGELOG.md](https://github.com/MahmoudMMB/LocationPicker_SupportRTL_Language/blob/master/CHANGELOG.md)
 
 ## Contribute
 
