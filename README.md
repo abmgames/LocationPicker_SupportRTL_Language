@@ -120,7 +120,8 @@ __NOTE__: If you installed via Cocoapods:
 import LocationPickerViewController
 ```
 
-Showing `LocationPicker` via navigation controller is very simple, just create one, add a completion closure and push it.
+Showing `LocationPicker` via 
+gation controller is very simple, just create one, add a completion closure and push it.
 ```swift
 let locationPicker = LocationPicker()
 locationPicker.pickCompletion = { (pickedLocationItem) in
@@ -136,10 +137,14 @@ locationPicker.pickCompletion = { (pickedLocationItem) in
     // Do something with the location the user picked.
 }
 locationPicker.addBarButtons()
-// Call this method to add a done and a cancel button to navigation bar.
-
-let navigationController = UINavigationController(rootViewController: customLocationPicker)
-presentViewController(navigationController, animated: true, completion: nil)
+// Call this method to add a done and a cancel button to navigation bar and set navigation bar background.
+let navigationController = UINavigationController(rootViewController: locationPicker)
+navigationController.navigationBar.isTranslucent = false
+navigationController.navigationBar.tintColor = .white
+navigationController.navigationBar.barTintColor = .black
+navigationController.view.backgroundColor = .black
+navigationController.viewControllers.first?.view.backgroundColor = .black
+present(navigationController, animated: true, completion: nil)
 ```
 
 ### Storyboard
@@ -153,7 +158,7 @@ __NOTE__: If you installed via Cocopods, the __Module__ field should be `Locatio
 ```swift
 override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "Your Identifier" {
-        let locationPicker = segue.destinationViewController as! LocationPicker
+        let locationPicker = segue.destination as! LocationPicker
         locationPicker.pickCompletion = { (pickedLocationItem) in
             // Do something with the location the user picked.
         }
@@ -218,7 +223,7 @@ __Note__: If `alternativeLocationEditable` is set to true, please adopt __Locati
 
 | Property name | Default | Target | Remark |
 | ------------- |:-------:| ------ | ------ |
-| tableViewBackgroundColor | UIColor.whiteColor() | tableView.backgroundColor | The background color of the table view |
+| tableViewBackgroundColor | UIColor.white | tableView.backgroundColor | The background color of the table view |
 | currentLocationIconColor | UIColor(hue: 0.447, saturation: 0.731, brightness: 0.569, alpha: 1) | UIImage() | The color of the icon showed in current location cell, the icon image can be changed via property `currentLocationIconImage` |
 | searchResultLocationIconColor | UIColor(hue: 0.447, saturation: 0.731, brightness: 0.569, alpha: 1) | UIImage() | The color of the icon showed in search result location cells, the icon image can be changed via property `searchResultLocationIconImage` |
 | alternativeLocationIconColor | UIColor(hue: 0.447, saturation: 0.731, brightness: 0.569, alpha: 1) | UIImage() | The color of the icon showed in alternative location cells, the icon image can be changed via property 'alternativeLocationIconImage' |
