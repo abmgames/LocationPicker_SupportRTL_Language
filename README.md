@@ -108,10 +108,10 @@ let package = Package(
 
 ### Programmatically
 
-Import `LocationPicker`
+Import `LocationPickerViewControllerRTL`
 
 ```swift
-import LocationPicker
+import LocationPickerViewControllerRTL
 ```
 
 __NOTE__: If you installed via Cocoapods:
@@ -130,7 +130,7 @@ locationPicker.pickCompletion = { (pickedLocationItem) in
 navigationController!.pushViewController(locationPicker, animated: true)
 ```
 
-To present `LocationPicker`, it needs to be nested inside a navigation controller so that it can be dismissed.
+To present `LocationPickerViewControllerRTL`, it needs to be nested inside a navigation controller so that it can be dismissed.
 ```swift
 let locationPicker = LocationPicker()
 locationPicker.pickCompletion = { (pickedLocationItem) in
