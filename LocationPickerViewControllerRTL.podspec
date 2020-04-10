@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary          = "A ready for use and fully customizable location picker for your app."
 
   s.homepage         = "https://github.com/MahmoudMMB/LocationPicker_SupportRTL_Language"
-  s.screenshots      = "https://raw.githubusercontent.com/MahmoudMMB/LocationPicker_SupportRTL_Language/master/Screenshots/locationpicker.gif"
+  s.screenshots      = "https://raw.githubusercontent.com/MahmoudMMB/LocationPicker_SupportRTL_Language/master/Screenshots/locationpicker.git"
   s.license          = 'MahmoudMMB'
   s.author           = { "MahmoudMMB" => "eng.mahmoud.bel@gmail.com" }
   s.source           = { :git => "https://github.com/MahmoudMMB/LocationPicker_SupportRTL_Language.git", :tag => s.version.to_s }
