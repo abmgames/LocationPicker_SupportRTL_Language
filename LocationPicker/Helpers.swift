@@ -111,3 +111,9 @@ func getLongitudinalDistance(fromMapRect mapRect: MKMapRect) -> Double {
     let eastMapPoint = MKMapPoint.init(x: mapRect.minX, y: mapRect.midY)
     return westMapPoint.distance(to: eastMapPoint)
 }
+
+internal extension String {
+    var localized: String {
+        return NSLocalizedString(self, tableName: "LocationPickerLocalizable", bundle: Bundle(for: LocationPicker.self), value: "", comment: "")
+    }
+}

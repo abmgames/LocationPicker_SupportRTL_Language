@@ -1,11 +1,4 @@
-framework module LocationPicker {
-  umbrella header "LocationPicker.h"
-
-  export *
-  module * { export * }
-}
-
-module LocationPicker.Swift {
-    header "LocationPicker-Swift.h"
-    requires objc
+framework module LocationPickerViewControllerRTL {
+  header "LocationPickerViewControllerRTL-Swift.h"
+  requires objc
 }

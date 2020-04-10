@@ -196,10 +196,10 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
      - Note:
      If you are content with the default alert controller, don't set this property, just change the text in it by calling `func setLocationDeniedAlertControllerTitle` or change the following text directly.
      
-            var locationDeniedAlertTitle
-            var locationDeniedAlertMessage
-            var locationDeniedGrantText
-            var locationDeniedCancelText
+     var locationDeniedAlertTitle
+     var locationDeniedAlertMessage
+     var locationDeniedGrantText
+     var locationDeniedCancelText
      
      - SeeAlso:
      `func setLocationDeniedAlertControllerTitle`
@@ -218,7 +218,7 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
      
      - Note:
      If an arbitrary location is selected, its coordinate in `LocationItem` will be `nil`. __Default__ is __`false`__.
-    */
+     */
     open var isAllowArbitraryLocation = false
     
     
@@ -234,22 +234,22 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
     // MARK: UI Customizations
     
     /// Text that indicates user's current location. __Default__ is __`"Current Location"`__.
-    open var currentLocationText = NSLocalizedString("Current Location", comment: "")
+    open var currentLocationText = "Current Location".localized
     
     /// Text of search bar's placeholder. __Default__ is __`"Search for location"`__.
-    open var searchBarPlaceholder = NSLocalizedString("Search for location", comment: "")
+    open var searchBarPlaceholder = "Search for location".localized
     
     /// Text of location denied alert title. __Default__ is __`"Location access denied"`__
-    open var locationDeniedAlertTitle = NSLocalizedString("Location access denied", comment: "")
+    open var locationDeniedAlertTitle = "Location access denied".localized
     
     /// Text of location denied alert message. __Default__ is __`"Grant location access to use current location"`__
-    open var locationDeniedAlertMessage = NSLocalizedString("Grant location access to use current location", comment: "")
+    open var locationDeniedAlertMessage = "Grant location access to use current location".localized
     
     /// Text of location denied alert _Grant_ button. __Default__ is __`"Grant"`__
-    open var locationDeniedGrantText = NSLocalizedString("Grant", comment: "")
+    open var locationDeniedGrantText = "Grant".localized
     
     /// Text of location denied alert _Cancel_ button. __Default__ is __`"Cancel"`__
-    open var locationDeniedCancelText = NSLocalizedString("Cancel", comment: "")
+    open var locationDeniedCancelText = "Cancel".localized
     
     
     /// Longitudinal distance in meters that the map view shows when user select a location and before zoom in or zoom out. __Default__ is __`1000`__.
@@ -258,7 +258,7 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
     /// Distance in meters that is used to search locations. __Default__ is __`10000`__
     open var searchDistance: Double = 10000
     
-        /// Default coordinate to use when current location information is not available. If not set, none is used.
+    /// Default coordinate to use when current location information is not available. If not set, none is used.
     open var defaultSearchCoordinate: CLLocationCoordinate2D?
     
     
@@ -322,7 +322,7 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
     /// The image of the pin showed in the center of map view. If this property is set, the `var pinColor` won't be adopted.
     open var pinImage: UIImage? = nil
     
-        /// The size of the pin's shadow. Set this value to zero to hide the shadow. __Default__ is __`5`__
+    /// The size of the pin's shadow. Set this value to zero to hide the shadow. __Default__ is __`5`__
     open var pinShadowViewDiameter: CGFloat = 5
     
     // MARK: - UI Elements
@@ -389,10 +389,12 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
         let doneButtonItem = doneButtonItem ?? UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
         doneButtonItem.isEnabled = false
         doneButtonItem.target = self
+        doneButtonItem.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 17)], for: .normal)
         doneButtonItem.action = #selector(doneButtonDidTap(barButtonItem:))
         
         let cancelButtonItem = cancelButtonItem ?? UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: nil)
         cancelButtonItem.target = self
+        cancelButtonItem.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 17)], for: .normal)
         cancelButtonItem.action = #selector(cancelButtonDidTap(barButtonItem:))
         
         switch doneButtonOrientation {
@@ -415,17 +417,17 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
      - Note:
      You can set the color of three icons and the pin in map view by setting the attributes listed below, but to keep the UI consistent, this is not recommanded.
      
-            var currentLocationIconColor
-            var searchResultLocationIconColor
-            var alternativeLocationIconColor
-            var pinColor
+     var currentLocationIconColor
+     var searchResultLocationIconColor
+     var alternativeLocationIconColor
+     var pinColor
      
      If you are not satisified with the shape of icons and pin image, you can change them by setting the attributes below.
      
-            var currentLocationIconImage
-            var searchResultLocationIconImage
-            var alternativeLocationIconImage
-            var pinImage
+     var currentLocationIconImage
+     var searchResultLocationIconImage
+     var alternativeLocationIconImage
+     var pinImage
      
      - parameter themeColor:         The color of all icons
      - parameter primaryTextColor:   The color of primary text
@@ -445,7 +447,7 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
      
      If you are content with the default alert controller provided by `LocationPicker`, just call this method to change the alert text to your any language you like.
      
-     - Note: 
+     - Note:
      If you are not satisfied with the default alert controller, just set `var locationDeniedAlertController` to your fully customized alert controller. If you don't want to present an alert controller at all in such situation, you can customize the behavior of `LocationPicker` by setting closure, using delegate or overriding.
      
      - parameter title:      Text of location denied alert title
@@ -481,6 +483,7 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
         setupLocationManager()
         setupViews()
         layoutViews()
+        setupCurrentLocation()
     }
     
     open override func viewDidAppear(_ animated: Bool) {
@@ -513,6 +516,28 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
             locationManager.requestLocation()
         } else {
             locationManager.startUpdatingLocation()
+        }
+    }
+    
+    private func centerMapOnLocation(location: CLLocation) {
+        let regionRadius: CLLocationDistance = 500
+        let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius * 2.0, longitudinalMeters: regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    private func setupCurrentLocation() {
+        switch CLLocationManager.authorizationStatus() {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .denied:
+            locationDidDeny(locationPicker: self)
+        default:
+            break
+        }
+        
+        if let currentLocation = locationManager.location {
+            reverseGeocodeLocation(currentLocation)
+            centerMapOnLocation(location: currentLocation)
         }
     }
     
@@ -580,7 +605,7 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
             mapView.trailingAnchor.constraint(equalTo: tableView.trailingAnchor).isActive = true
             mapView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
             
-            mapViewHeightConstraint = mapView.heightAnchor.constraint(equalToConstant: 0)
+            mapViewHeightConstraint = mapView.heightAnchor.constraint(equalToConstant: view.frame.height * 0.65)
             mapViewHeightConstraint.isActive = true
             
             pinView.centerXAnchor.constraint(equalTo: mapView.centerXAnchor).isActive = true
@@ -605,7 +630,7 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
             NSLayoutConstraint(item: mapView, attribute: .trailing, relatedBy: .equal, toItem: tableView, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
             NSLayoutConstraint(item: mapView, attribute: .bottom, relatedBy: .equal, toItem: bottomLayoutGuide, attribute: .top, multiplier: 1, constant: 0).isActive = true
             
-            mapViewHeightConstraint = NSLayoutConstraint(item: mapView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 0)
+            mapViewHeightConstraint = NSLayoutConstraint(item: mapView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: view.frame.height * 0.65)
             mapViewHeightConstraint.isActive = true
             
             NSLayoutConstraint(item: pinView, attribute: .centerX, relatedBy: .equal, toItem: mapView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
@@ -706,7 +731,6 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
             if !self.isRedirectToExactCoordinate {
                 placemark = MKPlacemark(coordinate: location.coordinate, addressDictionary: placemark.addressDictionary as? [String : NSObject])
             }
-            
             if !self.searchBar.isFirstResponder {
                 let mapItem = MKMapItem(placemark: MKPlacemark(placemark: placemark))
                 self.selectLocationItem(LocationItem(mapItem: mapItem))
@@ -973,7 +997,7 @@ extension LocationPicker: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.row == 0 {
             cell = LocationCell(locationType: .currentLocation, locationItem: nil)
-            cell.locationNameLabel.text = currentLocationText
+            cell.locationNameLabel.text = "Current Location".localized
             cell.iconView.image = currentLocationIcon ?? StyleKit.imageOfMapPointerIcon(color: currentLocationIconColor)
         } else if indexPath.row > 0 && indexPath.row <= searchResultLocations.count {
             let index = indexPath.row - 1
@@ -1051,7 +1075,7 @@ extension LocationPicker: MKMapViewDelegate {
         if !animated {
             UIView.animate(withDuration: 0.35, delay: 0, options: .curveEaseOut, animations: {
                 self.pinView.frame.origin.y -= self.pinViewImageHeight / 2
-                }, completion: nil)
+            }, completion: nil)
         }
     }
     
@@ -1071,7 +1095,7 @@ extension LocationPicker: MKMapViewDelegate {
         if !animated {
             UIView.animate(withDuration: 0.35, delay: 0, options: .curveEaseOut, animations: {
                 self.pinView.frame.origin.y += self.pinViewImageHeight / 2
-                }, completion: nil)
+            }, completion: nil)
         }
     }
     

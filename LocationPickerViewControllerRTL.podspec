@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "LocationPickerViewControllerRTL"
-  s.version          = "3.4.3"
+  s.version          = "3.4.4"
   s.summary          = "A ready for use and fully customizable location picker for your app."
 
   s.homepage         = "https://github.com/MahmoudMMB/LocationPicker_SupportRTL_Language"
@@ -13,6 +13,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.swift_version = '4.2'
 
+  s.resource_bundles  =  'LocationPicker/Resources/*.{lproj,storyboard}/*.{xib,strings}'
   s.source_files = 'LocationPicker/*.{h,m,swift}'
   s.exclude_files = "LocationPicker/*.plist"
 end

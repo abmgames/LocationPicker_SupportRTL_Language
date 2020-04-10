@@ -14,7 +14,7 @@
 		0228892C1CACE58A00D7E11A /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228892B1CACE58A00D7E11A /* Helpers.swift */; };
 		0268267D1CAF94A900B18185 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0268267C1CAF94A900B18185 /* LocationCell.swift */; };
 		0268268A1CAFB74A00B18185 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026826891CAFB74A00B18185 /* StyleKit.swift */; };
-		89B0273A23B2A36200DDB870 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89B0273C23B2A36200DDB870 /* Localizable.strings */; };
+		896D1FE424268FED00315A47 /* LocationPickerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89F72C3D24268E5E0031700A /* LocationPickerLocalizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +27,8 @@
 		0228892B1CACE58A00D7E11A /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		0268267C1CAF94A900B18185 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		026826891CAFB74A00B18185 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
-		89B0273B23B2A36200DDB870 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		89B0273D23B2A37200DDB870 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		89F72C3C24268E5E0031700A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocationPickerLocalizable.strings; sourceTree = "<group>"; };
+		89F72C3E24268E610031700A /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LocationPickerLocalizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,17 +61,25 @@
 		022888791CA9398D00D7E11A /* LocationPicker */ = {
 			isa = PBXGroup;
 			children = (
+				89B13528242684F0000CD7E9 /* Resources */,
 				0228887A1CA9398D00D7E11A /* LocationPicker.h */,
 				022889111CA939FB00D7E11A /* LocationPicker.swift */,
 				0268267C1CAF94A900B18185 /* LocationCell.swift */,
 				022889271CABDAF500D7E11A /* LocationItem.swift */,
 				022889291CAC297E00D7E11A /* Protocol.swift */,
 				0228892B1CACE58A00D7E11A /* Helpers.swift */,
-				89B0273C23B2A36200DDB870 /* Localizable.strings */,
 				026826891CAFB74A00B18185 /* StyleKit.swift */,
 				0228887C1CA9398D00D7E11A /* Info.plist */,
 			);
 			path = LocationPicker;
+			sourceTree = "<group>";
+		};
+		89B13528242684F0000CD7E9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				89F72C3D24268E5E0031700A /* LocationPickerLocalizable.strings */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,19 +126,19 @@
 				TargetAttributes = {
 					022888761CA9398D00D7E11A = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = V976P88RM9;
 						LastSwiftMigration = 1000;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
 			buildConfigurationList = 022888711CA9398D00D7E11A /* Build configuration list for PBXProject "LocationPickerViewControllerRTL" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				ar,
+				Base,
 			);
 			mainGroup = 0228886D1CA9398D00D7E11A;
 			productRefGroup = 022888781CA9398D00D7E11A /* Products */;
@@ -147,7 +155,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89B0273A23B2A36200DDB870 /* Localizable.strings in Resources */,
+				896D1FE424268FED00315A47 /* LocationPickerLocalizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,13 +178,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		89B0273C23B2A36200DDB870 /* Localizable.strings */ = {
+		89F72C3D24268E5E0031700A /* LocationPickerLocalizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				89B0273B23B2A36200DDB870 /* en */,
-				89B0273D23B2A37200DDB870 /* ar */,
+				89F72C3C24268E5E0031700A /* en */,
+				89F72C3E24268E610031700A /* ar */,
 			);
-			name = Localizable.strings;
+			name = LocationPickerLocalizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -299,9 +307,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -313,6 +324,8 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MahmoudMMB.LocationPickerViewControllerRTL;
 				PRODUCT_NAME = LocationPickerViewControllerRTL;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -323,9 +336,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -337,6 +353,8 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MahmoudMMB.LocationPickerViewControllerRTL;
 				PRODUCT_NAME = LocationPickerViewControllerRTL;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
