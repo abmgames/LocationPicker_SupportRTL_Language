@@ -12,7 +12,12 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.requires_arc = true
   s.swift_version = '4.2'
-  s.resources    = ['Resources/**/*.{lproj,storyboard}/*.{xib,strings}', 'Source/**/*.xib']
   s.source_files = 'LocationPicker/*.{h,m,swift}'
+  s.resource_bundles  = {
+    'LocationPickerViewControllerRTL' => [
+      'LocationPicker/Resources/*.{lproj,storyboard}/*.{xib,strings}'
+    ]
+  }
+
   s.exclude_files = "LocationPicker/*.plist"
 end
