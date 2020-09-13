@@ -47,12 +47,12 @@ class ViewController: UIViewController, LocationPickerDelegate, LocationPickerDa
         // Show Location Picker via push segue.
         // LocationPicker in Storyboard.
         if segue.identifier == "LocationPicker" {
-            let locationPicker = segue.destination as! LocationPicker
+            let locationPicker = segue.destination as? CustomLocationPicker
             // User delegate and dataSource.
-            locationPicker.delegate = self
-            locationPicker.dataSource = self
-            locationPicker.isAlternativeLocationEditable = true
-            locationPicker.isAllowArbitraryLocation = arbitraryLocationSwitch.isOn
+            locationPicker?.delegate = self
+            locationPicker?.dataSource = self
+            locationPicker?.isAlternativeLocationEditable = true
+            locationPicker?.isAllowArbitraryLocation = arbitraryLocationSwitch.isOn
         }
     }
     

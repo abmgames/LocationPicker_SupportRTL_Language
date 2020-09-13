@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/mmb/Desktop/XCode/LocationPicker_SupportRTL_Language/LocationPickerViewControllerRTL.xcodeproj">
+      location = "group:LocationPickerViewControllerRTL.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:LocationPickerDemo/LocationPickerDemo.xcodeproj">

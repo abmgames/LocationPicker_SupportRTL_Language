@@ -997,7 +997,7 @@ extension LocationPicker: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.row == 0 {
             cell = LocationCell(locationType: .currentLocation, locationItem: nil)
-            cell.locationNameLabel.text = "Current Location".localized
+            cell.locationNameLabel.text = currentLocationText
             cell.iconView.image = currentLocationIcon ?? StyleKit.imageOfMapPointerIcon(color: currentLocationIconColor)
         } else if indexPath.row > 0 && indexPath.row <= searchResultLocations.count {
             let index = indexPath.row - 1
