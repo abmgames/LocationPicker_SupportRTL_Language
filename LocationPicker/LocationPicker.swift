@@ -690,7 +690,8 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc private func cancelButtonDidTap(barButtonItem: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     
