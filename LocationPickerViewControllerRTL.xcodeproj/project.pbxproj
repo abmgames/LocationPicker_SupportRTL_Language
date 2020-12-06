@@ -27,6 +27,7 @@
 		0228892B1CACE58A00D7E11A /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		0268267C1CAF94A900B18185 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		026826891CAFB74A00B18185 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
+		363D776A257CEBF40029923C /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/LocationPickerLocalizable.strings; sourceTree = "<group>"; };
 		89F72C3C24268E5E0031700A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocationPickerLocalizable.strings; sourceTree = "<group>"; };
 		89F72C3E24268E610031700A /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LocationPickerLocalizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +140,7 @@
 				en,
 				ar,
 				Base,
+				he,
 			);
 			mainGroup = 0228886D1CA9398D00D7E11A;
 			productRefGroup = 022888781CA9398D00D7E11A /* Products */;
@@ -183,6 +185,7 @@
 			children = (
 				89F72C3C24268E5E0031700A /* en */,
 				89F72C3E24268E610031700A /* ar */,
+				363D776A257CEBF40029923C /* he */,
 			);
 			name = LocationPickerLocalizable.strings;
 			sourceTree = "<group>";
