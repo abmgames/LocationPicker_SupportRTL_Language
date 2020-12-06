@@ -234,22 +234,22 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
     // MARK: UI Customizations
     
     /// Text that indicates user's current location. __Default__ is __`"Current Location"`__.
-    open var currentLocationText = "Current Location".localized
+    open var currentLocationText = NSLocalizedString("Current Location", comment: "")
     
     /// Text of search bar's placeholder. __Default__ is __`"Search for location"`__.
-    open var searchBarPlaceholder = "Search for location".localized
+    open var searchBarPlaceholder = NSLocalizedString("Search for location", comment: "")
     
     /// Text of location denied alert title. __Default__ is __`"Location access denied"`__
-    open var locationDeniedAlertTitle = "Location access denied".localized
+    open var locationDeniedAlertTitle = NSLocalizedString("Location access denied", comment: "")
     
     /// Text of location denied alert message. __Default__ is __`"Grant location access to use current location"`__
-    open var locationDeniedAlertMessage = "Grant location access to use current location".localized
+    open var locationDeniedAlertMessage = NSLocalizedString("Grant location access to use current location", comment: "")
     
     /// Text of location denied alert _Grant_ button. __Default__ is __`"Grant"`__
-    open var locationDeniedGrantText = "Grant".localized
+    open var locationDeniedGrantText = NSLocalizedString("Grant", comment: "")
     
     /// Text of location denied alert _Cancel_ button. __Default__ is __`"Cancel"`__
-    open var locationDeniedCancelText = "Cancel".localized
+    open var locationDeniedCancelText = NSLocalizedString("Cancel", comment: "")
     
     
     /// Longitudinal distance in meters that the map view shows when user select a location and before zoom in or zoom out. __Default__ is __`1000`__.
@@ -292,16 +292,16 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
     open var tableViewBackgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     
     /// The color of the icon showed in current location cell. __Default__ is __`UIColor(hue: 0.447, saturation: 0.731, brightness: 0.569, alpha: 1)`__
-    open var currentLocationIconColor = #colorLiteral(red: 0.1176470588, green: 0.5098039216, blue: 0.3568627451, alpha: 1)
+    open var currentLocationIconColor = #colorLiteral(red: 0.2705882353, green: 0.3490196078, blue: 0.5294117647, alpha: 1)
     
     /// The color of the icon showed in search result location cells. __Default__ is __`UIColor(hue: 0.447, saturation: 0.731, brightness: 0.569, alpha: 1)`__
-    open var searchResultLocationIconColor = #colorLiteral(red: 0.1176470588, green: 0.5098039216, blue: 0.3568627451, alpha: 1)
+    open var searchResultLocationIconColor = #colorLiteral(red: 0.2705882353, green: 0.3490196078, blue: 0.5294117647, alpha: 1)
     
     /// The color of the icon showed in alternative location cells. __Default__ is __`UIColor(hue: 0.447, saturation: 0.731, brightness: 0.569, alpha: 1)`__
-    open var alternativeLocationIconColor = #colorLiteral(red: 0.1176470588, green: 0.5098039216, blue: 0.3568627451, alpha: 1)
+    open var alternativeLocationIconColor = #colorLiteral(red: 0.2705882353, green: 0.3490196078, blue: 0.5294117647, alpha: 1)
     
     /// The color of the pin showed in the center of map view. __Default__ is __`UIColor(hue: 0.447, saturation: 0.731, brightness: 0.569, alpha: 1)`__
-    open var pinColor = #colorLiteral(red: 0.1176470588, green: 0.5098039216, blue: 0.3568627451, alpha: 1)
+    open var pinColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
     
     /// The color of primary text color. __Default__ is __`UIColor(colorLiteralRed: 0.34902, green: 0.384314, blue: 0.427451, alpha: 1)`__
     open var primaryTextColor = #colorLiteral(red: 0.34902, green: 0.384314, blue: 0.427451, alpha: 1)
@@ -389,12 +389,10 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
         let doneButtonItem = doneButtonItem ?? UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
         doneButtonItem.isEnabled = false
         doneButtonItem.target = self
-        doneButtonItem.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 17)], for: .normal)
         doneButtonItem.action = #selector(doneButtonDidTap(barButtonItem:))
         
         let cancelButtonItem = cancelButtonItem ?? UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: nil)
         cancelButtonItem.target = self
-        cancelButtonItem.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 17)], for: .normal)
         cancelButtonItem.action = #selector(cancelButtonDidTap(barButtonItem:))
         
         switch doneButtonOrientation {
@@ -546,8 +544,16 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
         
         searchBar.delegate = self
         searchBar.placeholder = searchBarPlaceholder
-        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as! UITextField
-        textFieldInsideSearchBar.textColor = primaryTextColor
+        
+        if #available(iOS 13.0, *) {
+
+            let attributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.lightGray , NSAttributedString.Key.font : UIFont(name: "Assistant-Regular", size: 15) as Any]
+            searchBar.searchTextField.attributedPlaceholder    = NSAttributedString(string: NSLocalizedString("Search", comment: ""), attributes: attributes)
+            searchBar.searchTextField.defaultTextAttributes    = [NSAttributedString.Key.foregroundColor : primaryTextColor]
+        } else {
+            let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as! UITextField
+            textFieldInsideSearchBar.textColor = primaryTextColor
+        }
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -677,6 +683,8 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
         if let locationItem = selectedLocationItem {
             dismiss(animated: true, completion: nil)
             locationDidPick(locationItem: locationItem)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newLocationNotification"), object: nil, userInfo: ["object":locationItem.mapItem])
+            navigationController?.popToRootViewController(animated: true)
         }
     }
     
