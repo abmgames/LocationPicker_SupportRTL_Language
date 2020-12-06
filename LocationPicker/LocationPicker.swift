@@ -482,6 +482,7 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
         setupViews()
         layoutViews()
         setupCurrentLocation()
+        addBarButtons()
     }
     
     open override func viewDidAppear(_ animated: Bool) {
